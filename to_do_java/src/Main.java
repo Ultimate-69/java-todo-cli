@@ -63,7 +63,14 @@ public class Main {
                 GiveOptions();
                 break;
             case 3:
-                // TODO: IMPLEMENT ERASURE
+                System.out.println("Erasing data...");
+                try (FileWriter writer = new FileWriter("tasks.txt", false)) {
+                    writer.write(' ');
+                } catch (Exception e) {
+                    System.out.println("An error occurred when erasing tasks.");
+                }
+
+                GiveOptions();
                 break;
             case 4:
                 System.out.println("Quitting...");
