@@ -1,4 +1,8 @@
 import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.FileReader;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -20,7 +24,19 @@ public class Main {
 
     static void HandleInput(int choice)
     {
+        Path filepath = Paths.get("tasks.txt");
+
         switch (choice) {
+            case 1:
+                if (Files.exists(filepath))
+                {
+                    System.out.println("Your list of tasks:");
+                }
+                else
+                {
+                    System.out.println("No valid list exists! Please add a task to create a list.");
+                }
+                break;
             case 5:
                 System.out.println("Quitting...");
                 System.exit(0);
