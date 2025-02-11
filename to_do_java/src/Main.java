@@ -17,9 +17,8 @@ public class Main {
         System.out.println("Here are your options:");
         System.out.println("1. View List");
         System.out.println("2. Add to List");
-        System.out.println("3. Remove from List");
-        System.out.println("4. Remove all from List");
-        System.out.println("5. Quit");
+        System.out.println("3. Erase List");
+        System.out.println("4. Quit");
 
         int choice = inputScanner.nextInt();
         inputScanner.nextLine(); // Consume newline character
@@ -63,7 +62,10 @@ public class Main {
 
                 GiveOptions();
                 break;
-            case 5:
+            case 3:
+                // TODO: IMPLEMENT ERASURE
+                break;
+            case 4:
                 System.out.println("Quitting...");
                 inputScanner.close();
                 System.exit(0);
