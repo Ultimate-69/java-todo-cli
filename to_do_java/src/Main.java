@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -54,6 +55,21 @@ public class Main {
                 {
                     System.out.println("No valid list exists! Please add a task to create a list.");
                 }
+                break;
+            case 2:
+                System.out.print("Insert a task: ");
+                Scanner scanner = new Scanner(System.in);
+                String task = scanner.nextLine();
+
+                try {
+                    FileWriter writer = new FileWriter("tasks.txt", true);
+                    writer.write(task + '\n');
+                    writer.close();
+                } catch (Exception e) {
+                    System.out.println("An error occured when adding the task.");
+                }
+
+                scanner.close();
                 break;
             case 5:
                 System.out.println("Quitting...");
