@@ -2,7 +2,9 @@ import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -31,6 +33,24 @@ public class Main {
                 if (Files.exists(filepath))
                 {
                     System.out.println("Your list of tasks:");
+                    try {
+                        FileReader reader = new FileReader("tasks.txt");
+                        int i;
+                        String tasks = "- ";
+                        while ((i = reader.read()) != -1)
+                        {
+                            tasks += (char) i;
+                            if ((char) i == '\n')
+                            {
+                                tasks += "- ";
+                            }
+                        }
+                        System.out.println(tasks);
+                        reader.close();
+                    } catch (Exception e)
+                    {
+                        System.out.println("An error occured when fetching tasks.");
+                    }
                 }
                 else
                 {
